@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c9af1950-605c-432d-9906-fa99f6cfb25a" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1Ysz7cWKGhdkLNy8Wa90cOfXciA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DreamMultiDevices-master" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\myfile\manual-simu-search\tools" />
+      <recent name="D:\myfile\manual-simu-search" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="manual-simu-search" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Administrator\AppData\Local\Programs\Python\Python37\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/start.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c9af1950-605c-432d-9906-fa99f6cfb25a" name="Default Changelist" comment="" />
+      <created>1583745923133</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583745923133</updated>
+      <workItem from="1583745925439" duration="22709000" />
+      <workItem from="1584433625060" duration="62076000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="requirements.txt" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="254" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584433596211">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="254" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1584433596211" />
+    <state x="530" y="175" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584434159795">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="530" y="175" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1600.860@0.0.1600.860" timestamp="1584434159795" />
+    <state width="1598" height="440" key="DebuggerActiveHint" timestamp="1584586663369">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1598" height="440" key="DebuggerActiveHint/0.0.1600.860@0.0.1600.860" timestamp="1584586663369" />
+    <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1584439046379">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1584439046379" />
+    <state width="1556" height="298" key="GridCell.Tab.0.bottom" timestamp="1585819088188">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="298" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1585819088188" />
+    <state width="1556" height="298" key="GridCell.Tab.0.center" timestamp="1585819088188">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="298" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1585819088188" />
+    <state width="1556" height="298" key="GridCell.Tab.0.left" timestamp="1585819088188">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="298" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1585819088188" />
+    <state width="1556" height="298" key="GridCell.Tab.0.right" timestamp="1585819088188">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="298" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1585819088188" />
+    <state width="1556" height="298" key="GridCell.Tab.1.bottom" timestamp="1585819059324">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="298" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1585819059324" />
+    <state width="1556" height="298" key="GridCell.Tab.1.center" timestamp="1585819059323">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="298" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1585819059323" />
+    <state width="1556" height="298" key="GridCell.Tab.1.left" timestamp="1585819059321">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="298" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1585819059321" />
+    <state width="1556" height="298" key="GridCell.Tab.1.right" timestamp="1585819059323">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="298" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1585819059323" />
+    <state x="521" y="160" width="582" height="524" key="StructurePopup" timestamp="1584695837020">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="521" y="160" width="582" height="524" key="StructurePopup/0.0.1600.860@0.0.1600.860" timestamp="1584695837020" />
+    <state x="92" y="92" width="1416" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1584437038449">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="92" y="92" width="1416" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1600.860@0.0.1600.860" timestamp="1584437038449" />
+    <state x="476" y="161" width="786" height="608" key="find.popup" timestamp="1585818451830">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="476" y="161" width="786" height="608" key="find.popup/0.0.1600.860@0.0.1600.860" timestamp="1585818451830" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/core/index.py</url>
+          <line>153</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/manual_simu_search$start.coverage" NAME="start Coverage Results" MODIFIED="1585818968677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

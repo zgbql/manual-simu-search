@@ -77,7 +77,7 @@ def enter_processing(i):
     try:
         #调用airtest的各个方法连接设备
         if("127.0.0.1" in devices):
-            connect_device('android:///127.0.0.1:62025?cap_method=javacap&touch_method=adb')
+            connect_device('android:///'+devices+'?cap_method=javacap&touch_method=adb')
         else:
             connect_device("Android:///" + devices)
 

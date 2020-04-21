@@ -286,18 +286,19 @@ def douyin_aut_search_recur(keyword,searchWord,index,poco):
         time.sleep(20)
         #poco("com.ss.android.ugc.live:id/cgr").click()
         #poco(desc="搜索").wait_for_appearance(timeout=10)
-        back = poco(desc="返回")
-        search = poco(desc="搜索")
-        i_know = poco(text="我知道了")
         later = poco(text="以后再说")
         if later:
             later.click()
+            time.sleep(5)
+        back = poco(desc="返回")
         if back:
             back.click()
-        time.sleep(5)
+        time.sleep(10)
+        i_know = poco(text="我知道了")
         if i_know:
             i_know.click()
             time.sleep(5)
+        search = poco(desc="搜索")
         search.click()
     else:
         searchWord = keyword+" "+ searchWord

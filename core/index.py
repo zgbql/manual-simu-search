@@ -228,7 +228,7 @@ def douyin_enter_processing(i):
     isconnect=""
     try:
         #调用airtest的各个方法连接设备
-        if("127.0.0.1" in devices):
+        if("127.0.0.1" in devices or '-' in devices):
             connect_device('android:///'+devices+'?cap_method=javacap&touch_method=adb')
         else:
             connect_device("Android:///" + devices)
@@ -260,7 +260,7 @@ def douyin_enter_processing(i):
         print( "连接设备{}失败".format(devices)+ traceback.format_exc())
     #无论结果如何，将flag置为1，通知Performance停止记录。
 
-def douyin_auto_search(i):
+def douyin_auto_search(i,flag=True):
     tasks = get_douyin_task()
     if tasks:
         json_result = json.loads(tasks[i].json)
@@ -274,16 +274,16 @@ def douyin_auto_search(i):
             keyword = searchWord_list[0]
             for searchWord in searchWord_list:
                  index = searchWord_list.index(searchWord)
-                 douyin_aut_search_recur(keyword,searchWord,index,poco)
-        douyin_auto_search(i)
+                 douyin_aut_search_recur(keyword,searchWord,index,poco,flag)
+        douyin_auto_search(i,False)
 
 
 #递归搜索
-def douyin_aut_search_recur(keyword,searchWord,index,poco):
-    if index==0:
+def douyin_aut_search_recur(keyword,searchWord,index,poco,flag=True):
+    if index==0 and flag:
         stop_app('com.ss.android.ugc.aweme')
         start_app('com.ss.android.ugc.aweme', activity=None)
-        time.sleep(20)
+        time.sleep(15)
         #poco("com.ss.android.ugc.live:id/cgr").click()
         #poco(desc="搜索").wait_for_appearance(timeout=10)
         later = poco(text="以后再说")
@@ -301,21 +301,25 @@ def douyin_aut_search_recur(keyword,searchWord,index,poco):
         search = poco(desc="搜索")
         search.click()
     else:
-        searchWord = keyword+" "+ searchWord
-    time.sleep(10)
+        searchWord = keyword
+    time.sleep(5)
     poco(type='android.widget.EditText').click()
-    text(searchWord, search=True)
+    #poco(type='android.widget.EditText').set_text(searchWord)
+    poco(type='android.widget.EditText').set_text("")
+    text(searchWord,search=True)
     poco(text="视频").click()
+    time.sleep(10)
     x, y = device().get_current_resolution()
     start_pt = (x * 0.5, y * 0.8)
     end_pt = (x * 0.5, y * 0.2)
     flag = True
     count = 0
-    while (flag and count<3):
-        time.sleep(3)
+    swip_count = 0
+    while (flag and count<3 and swip_count<30):
+        time.sleep(2)
         try:
-            end_text = poco(text="没有更多了")
-            if(end_text and end_text.get_text().startswith('没有更多了')):
+            end_text = poco(text="暂时没有更多了")
+            if(end_text and end_text.get_text().startswith('暂时没有更多了')):
                 flag=False
             init_failed = poco(text="加载失败,点击重试")
             if (init_failed and init_failed.get_text().startswith('加载失败')):
@@ -323,10 +327,11 @@ def douyin_aut_search_recur(keyword,searchWord,index,poco):
                 init_failed.click()
                 continue
             swipe(start_pt, end_pt)
+            swip_count=swip_count+1
             time.sleep(random.random())
         except Exception as e:
             print("发生未知错误" + traceback.format_exc())
-            time.sleep(8)
+            time.sleep(5)
 
             pass
     return

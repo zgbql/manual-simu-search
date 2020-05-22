@@ -93,7 +93,50 @@ class AppAuthor(Base):
     platform = Column(String(50), nullable=False)
     keyword = Column(String(50), nullable=False)
     status = Column(Integer)
+class ShortVideoState(Base):
+    """ Site table """
+    __tablename__ = "short_video_crawl_state"
+    __table_args__ = {
+        "mysql_engine": "InnoDB",
+        "mysql_charset": "utf8"
+    }
 
+    id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
+    keyword = Column(String(200), nullable=False)
+    sId = Column(String(200), nullable=False, default=0)
+    platform = Column(String(20), nullable=False)
+    status = Column(Integer, nullable=False)
+    json = Column(String(2000), nullable=False)
+
+
+    @staticmethod
+    def update(id, platform):
+        result = ShortVideoState.query.filter(ShortVideoState.id == id and ShortVideoState.platform == platform).first()
+        if result is not None:
+            result.finishNum = 1
+            session.commit()
+
+    def get_crawl_lists(**params):
+        status = params["status"]
+        platform = params["platform"]
+
+        condition = [
+        ]
+        if platform:
+            condition.append(ShortVideoState.platform == platform)
+        if status:
+            condition.append(ShortVideoState.status == status)
+        try:
+            rows = session.query(ShortVideoState.id, ShortVideoState.keyword, ShortVideoState.json).filter(*condition).limit(100).all()
+            session.commit()
+            return rows
+        except Exception as e:
+            session.rollback()
+            raise e
+
+    def edit_status(id, data):
+
+        return edit(ShortVideoState, id, data)
 class State(Base):
     """ Site table """
     __tablename__ = "movie_crawl_state"

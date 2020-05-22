@@ -11,7 +11,7 @@ from poco.exceptions import *
 from tools.ScreenOFF import *
 from core.MultiAdb import MultiAdb as Madb
 from multiprocessing import Process,Value,Pool
-from tools.db import State
+from tools.db import State,ShortVideoState
 
 import traceback
 
@@ -264,8 +264,9 @@ def douyin_auto_search(i,flag=True):
     tasks = get_douyin_task()
     if tasks:
         json_result = json.loads(tasks[i].json)
-        data = {"status": '88'}
-        State.edit_status(tasks[i].id, data)
+        data = {"status": '1'}
+        #State.edit_status(tasks[i].id, data)
+        ShortVideoState.edit_status(tasks[i].id, data)
         dictParameters = json_result["dictParameters"]
         searchWords = dictParameters["searchWord"]
         searchWord_list = searchWords.split(",")
@@ -280,44 +281,51 @@ def douyin_auto_search(i,flag=True):
 
 #递归搜索
 def douyin_aut_search_recur(keyword,searchWord,index,poco,flag=True):
-    if index==0 and flag:
-        stop_app('com.ss.android.ugc.aweme')
-        start_app('com.ss.android.ugc.aweme', activity=None)
-        time.sleep(15)
-        #poco("com.ss.android.ugc.live:id/cgr").click()
-        #poco(desc="搜索").wait_for_appearance(timeout=10)
-        later = poco(text="以后再说")
-        if later:
-            later.click()
-            time.sleep(5)
-        back = poco(desc="返回")
-        if back:
-            back.click()
+    try:
+        if index==0 and flag:
+            stop_app('com.ss.android.ugc.aweme')
+            start_app('com.ss.android.ugc.aweme', activity=None)
+            time.sleep(10)
+            #poco("com.ss.android.ugc.live:id/cgr").click()
+            #poco(desc="搜索").wait_for_appearance(timeout=10)
+            later = poco(text="以后再说")
+            if later:
+                later.click()
+                time.sleep(5)
+            back = poco(desc="返回")
+            if back:
+                back.click()
+            time.sleep(10)
+            i_know = poco(text="我知道了")
+            if i_know:
+                i_know.click()
+                time.sleep(5)
+            time.sleep(10)
+            search = poco(desc="搜索")
+            search.click()
+        else:
+            searchWord = keyword
         time.sleep(10)
-        i_know = poco(text="我知道了")
-        if i_know:
-            i_know.click()
-            time.sleep(5)
-        search = poco(desc="搜索")
-        search.click()
-    else:
-        searchWord = keyword
-    time.sleep(5)
-    poco(type='android.widget.EditText').click()
-    #poco(type='android.widget.EditText').set_text(searchWord)
-    poco(type='android.widget.EditText').set_text("")
-    text(searchWord,search=True)
-    poco(text="视频").click()
-    time.sleep(10)
-    x, y = device().get_current_resolution()
-    start_pt = (x * 0.5, y * 0.8)
-    end_pt = (x * 0.5, y * 0.2)
-    flag = True
-    count = 0
-    swip_count = 0
-    while (flag and count<3 and swip_count<30):
-        time.sleep(2)
-        try:
+        text_flag = True
+        while text_flag:
+            try:
+                poco(type='android.widget.EditText').click()
+                #poco(type='android.widget.EditText').set_text(searchWord)
+                poco(type='android.widget.EditText').set_text("")
+                text_flag=False
+            except:
+                text_flag=True
+        text(searchWord,search=True)
+        poco(text="视频").click()
+        time.sleep(5)
+        x, y = device().get_current_resolution()
+        start_pt = (x * 0.5, y * 0.8)
+        end_pt = (x * 0.5, y * 0.2)
+        flag = True
+        count = 0
+        swip_count = 0
+        while (flag and count<3 and swip_count<30):
+            time.sleep(2)
             end_text = poco(text="暂时没有更多了")
             if(end_text and end_text.get_text().startswith('暂时没有更多了')):
                 flag=False
@@ -329,19 +337,19 @@ def douyin_aut_search_recur(keyword,searchWord,index,poco,flag=True):
             swipe(start_pt, end_pt)
             swip_count=swip_count+1
             time.sleep(random.random())
-        except Exception as e:
-            print("发生未知错误" + traceback.format_exc())
-            time.sleep(5)
+    except Exception as e:
 
-            pass
+        print("发生未知错误" + traceback.format_exc())
+        time.sleep(5)
+
     return
 
 
 
 def get_douyin_task():
     condition = {"status": '8', "platform": "douyinVideo"}
-
-    tasks = State.get_crawl_lists(**condition)
+    #tasks = State.get_crawl_lists(**condition)
+    tasks = ShortVideoState.get_crawl_lists(**condition)
     return tasks
 
 

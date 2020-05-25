@@ -141,7 +141,7 @@ def auto_search(i):
     if tasks:
         json_result = json.loads(tasks[i].json)
         data = {"status": '1'}
-        State.edit_status(tasks[i].id, data)
+        ShortVideoState.edit_status(tasks[i].id, data)
         dictParameters = json_result["dictParameters"]
         searchWords = dictParameters["searchWord"]
         searchWord_list = searchWords.split(",")
@@ -178,9 +178,17 @@ def aut_search_recur(keyword,searchWord,index,poco):
     else:
         searchWord = keyword+" "+ searchWord
     time.sleep(10)
-    poco("com.ss.android.ugc.live:id/hy").click()
-    poco("com.ss.android.ugc.live:id/hy").set_text(searchWord)
-    poco("com.ss.android.ugc.live:id/hz").click()
+    poco(type='android.widget.TextView').click()
+    text_flag = True
+    while text_flag:
+        try:
+            poco(type='android.widget.EditText').click()
+            # poco(type='android.widget.EditText').set_text(searchWord)
+            poco(type='android.widget.EditText').set_text("")
+            text_flag = False
+        except:
+            text_flag = True
+    text(searchWord, search=True)
     poco(text="视频").click()
     x, y = device().get_current_resolution()
     start_pt = (x * 0.5, y * 0.8)
@@ -212,7 +220,7 @@ def aut_search_recur(keyword,searchWord,index,poco):
 def get_hotsoon_task():
     condition = {"status": '0', "platform": "hotSoon"}
 
-    tasks = State.get_crawl_lists(**condition)
+    tasks = ShortVideoState.get_crawl_lists(**condition)
     return tasks
 
 

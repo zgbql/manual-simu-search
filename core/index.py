@@ -195,7 +195,8 @@ def aut_search_recur(keyword,searchWord,index,poco):
     end_pt = (x * 0.5, y * 0.2)
     flag = True
     count = 0
-    while (flag and count<3):
+    swip_count = 0
+    while (flag and count<3 and swip_count <30):
         time.sleep(3)
         try:
             end_text = poco(text="没有更多了")
@@ -208,6 +209,7 @@ def aut_search_recur(keyword,searchWord,index,poco):
                 continue
             swipe(start_pt, end_pt)
             time.sleep(random.random())
+            swip_count =swip_count+1
         except Exception as e:
             print("发生未知错误" + traceback.format_exc())
             time.sleep(8)

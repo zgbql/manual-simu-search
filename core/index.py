@@ -189,6 +189,7 @@ def aut_search_recur(keyword,searchWord,index,poco):
         except:
             text_flag = True
     text(searchWord, search=True)
+    poco(text="搜索").click()
     poco(text="视频").click()
     x, y = device().get_current_resolution()
     start_pt = (x * 0.5, y * 0.8)
@@ -326,6 +327,7 @@ def douyin_aut_search_recur(keyword,searchWord,index,poco,flag=True):
             except:
                 text_flag=True
         text(searchWord,search=True)
+        time.sleep(3)
         poco(text="视频").click()
         time.sleep(5)
         x, y = device().get_current_resolution()

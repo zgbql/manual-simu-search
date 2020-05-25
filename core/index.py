@@ -26,8 +26,8 @@ def print(*args, **kwargs):
 devicesList = Madb().getdevices()
 def main():
     #默认去config.ini里读取期望参与测试的设备，若为空，则选择当前连接的所有状态为“device”的设备
-    #task_search()
-    douyin_task_search()
+    task_search()
+    #douyin_task_search()
 
 
 def douyin_task_search():
@@ -159,7 +159,7 @@ def aut_search_recur(keyword,searchWord,index,poco):
     if index==0:
         stop_app('com.ss.android.ugc.live')
         start_app('com.ss.android.ugc.live', activity=None)
-        time.sleep(20)
+        time.sleep(10)
         #poco("com.ss.android.ugc.live:id/cgr").click()
         #poco(desc="搜索").wait_for_appearance(timeout=10)
         back = poco(desc="返回")
@@ -176,14 +176,14 @@ def aut_search_recur(keyword,searchWord,index,poco):
             time.sleep(5)
         search.click()
     else:
-        searchWord = keyword+" "+ searchWord
+        searchWord = keyword
     time.sleep(10)
-    poco(type='android.widget.TextView').click()
+    poco.click([0.775,0.0375])
     text_flag = True
     while text_flag:
         try:
             poco(type='android.widget.EditText').click()
-            # poco(type='android.widget.EditText').set_text(searchWord)
+            # poco(type='android.widget.EditText').set_text(searchWord)wuqiong
             poco(type='android.widget.EditText').set_text("")
             text_flag = False
         except:
@@ -355,7 +355,7 @@ def douyin_aut_search_recur(keyword,searchWord,index,poco,flag=True):
 
 
 def get_douyin_task():
-    condition = {"status": '8', "platform": "douyinVideo"}
+    condition = {"status": '0', "platform": "douyinVideo"}
     #tasks = State.get_crawl_lists(**condition)
     tasks = ShortVideoState.get_crawl_lists(**condition)
     return tasks

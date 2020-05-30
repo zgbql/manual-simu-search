@@ -136,7 +136,7 @@ def enter_processing(i):
         print( "连接设备{}失败".format(devices)+ traceback.format_exc())
     #无论结果如何，将flag置为1，通知Performance停止记录。
 
-def auto_search(i):
+def auto_search(i,flag=True):
     tasks = get_hotsoon_task()
     if tasks:
         json_result = json.loads(tasks[i].json)
@@ -150,20 +150,21 @@ def auto_search(i):
             keyword = searchWord_list[0]
             for searchWord in searchWord_list:
                  index = searchWord_list.index(searchWord)
-                 aut_search_recur(keyword,searchWord,index,poco)
-        auto_search(i)
+                 aut_search_recur(keyword,searchWord,index,poco,flag)
+        auto_search(i,False)
 
 
 #递归搜索
-def aut_search_recur(keyword,searchWord,index,poco):
-    if index==0:
+def aut_search_recur(keyword,searchWord,index,poco,flag=True):
+    f=False
+    if index==0 and flag and f:
         stop_app('com.ss.android.ugc.live')
         start_app('com.ss.android.ugc.live', activity=None)
         time.sleep(10)
         #poco("com.ss.android.ugc.live:id/cgr").click()
         #poco(desc="搜索").wait_for_appearance(timeout=10)
         back = poco(desc="返回")
-        search = poco(desc="搜索")
+
         i_know = poco(text="我知道了")
         later = poco(text="以后再说")
         if later:
@@ -174,11 +175,13 @@ def aut_search_recur(keyword,searchWord,index,poco):
         if i_know:
             i_know.click()
             time.sleep(5)
-        search.click()
+        search = poco(desc="搜索")
+        if search:
+            search.click()
     else:
         searchWord = keyword
     time.sleep(10)
-    poco.click([0.775,0.0375])
+    #touch(Template(r"tpl1590407481240.png"))
     text_flag = True
     while text_flag:
         try:
@@ -197,7 +200,7 @@ def aut_search_recur(keyword,searchWord,index,poco):
     flag = True
     count = 0
     swip_count = 0
-    while (flag and count<3 and swip_count <30):
+    while (flag and count<3 and swip_count <100):
         time.sleep(3)
         try:
             end_text = poco(text="没有更多了")

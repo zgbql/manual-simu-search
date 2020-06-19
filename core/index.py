@@ -156,8 +156,7 @@ def auto_search(i,flag=True):
 
 #递归搜索
 def aut_search_recur(keyword,searchWord,index,poco,flag=True):
-    f=False
-    if index==0 and flag and f:
+    if index==0 and flag:
         stop_app('com.ss.android.ugc.live')
         start_app('com.ss.android.ugc.live', activity=None)
         time.sleep(10)
@@ -181,7 +180,10 @@ def aut_search_recur(keyword,searchWord,index,poco,flag=True):
     else:
         searchWord = keyword
     time.sleep(10)
-    #touch(Template(r"tpl1590407481240.png"))
+    try:
+        touch(Template(r"tpl1590407481240.png"))
+    except:
+        text_flag = True
     text_flag = True
     while text_flag:
         try:
@@ -339,7 +341,7 @@ def douyin_aut_search_recur(keyword,searchWord,index,poco,flag=True):
         flag = True
         count = 0
         swip_count = 0
-        while (flag and count<3 and swip_count<30):
+        while (flag and count<3):
             time.sleep(2)
             end_text = poco(text="暂时没有更多了")
             if(end_text and end_text.get_text().startswith('暂时没有更多了')):

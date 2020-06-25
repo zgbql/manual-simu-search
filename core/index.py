@@ -178,7 +178,7 @@ def aut_search_recur(keyword,searchWord,index,poco,flag=True):
         if search:
             search.click()
     else:
-        searchWord = keyword
+        searchWord = searchWord
     time.sleep(10)
     try:
         touch(Template(r"tpl1590407481240.png"))

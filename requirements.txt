@@ -140,7 +140,7 @@ pytz==2019.2
 pywin32==227
 pywin32-ctypes==0.2.0
 pywinauto==0.6.3
-PyYAML==5.1.2
+PyYAML==5.4
 readability-lxml==0.6.2
 redis==3.3.8
 repoze.lru==0.7

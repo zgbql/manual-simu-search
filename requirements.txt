@@ -7,7 +7,7 @@ Appium-Python-Client==0.46
 APScheduler==3.6.1
 asn1crypto==1.2.0
 attrs==19.3.0
-Babel==2.7.0
+Babel==2.9.1
 basepage==1.7.2
 bcrypt==3.1.7
 beautifulsoup4==4.6.0

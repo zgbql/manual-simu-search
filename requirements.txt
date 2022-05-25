@@ -122,7 +122,7 @@ pyexcel-xlsx==0.5.7
 PyExecJS==1.5.1
 Pygments==2.4.2
 PyInstaller==3.5
-PyJWT==1.7.1
+PyJWT==2.4.0
 PyMySQL==0.8.1
 pyOpenSSL==19.0.0
 pyparsing==2.4.2

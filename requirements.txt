@@ -81,7 +81,7 @@ mss==4.0.3
 netaddr==0.7.19
 netifaces==0.10.9
 nulltype==2.3.1
-numpy==1.17.0
+numpy==1.22.0
 oauthlib==3.1.0
 opencv-contrib-python==3.4.2.17
 opencv-python==4.1.0.25
